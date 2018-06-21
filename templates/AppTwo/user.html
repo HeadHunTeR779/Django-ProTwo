@@ -1,9 +1,27 @@
-<html>
-  <head>
-    <title>Help Page</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Users</title>
+</head>
 
-  <body>
-    <h1>{{text_here}}</h1>
-  </body>
+<body>
+  <!--IF there is atleast one user -->
+  {% if user_details %}
+    <h3>Here are your Users:</h3>
+    {% for user in user_details %}
+      {{forloop.counter}}.  User info
+      <ul>
+        <li>First Name: {{ user.first_name }}</li>
+        <li>Last Name: {{ user.last_name }}</li>
+        <li>Email: {{ user.email }}</li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <h3>No data to show</h3>
+  {% endif %}
+</body>
+
 </html>

@@ -6,7 +6,7 @@ from .models import User
 # Create your views here.
 
 def index(request):
-    return HttpResponse('<h4>In Above url just append /user</h4>')
+    return render(request, 'AppTwo/index.html')
 
 def user(request):
     user_list = User.objects.order_by('last_name')  #you may also do User.objects.all('last_name')

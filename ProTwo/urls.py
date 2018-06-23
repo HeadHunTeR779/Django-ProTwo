@@ -21,5 +21,5 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^user/', include('AppTwo.urls')),
+    url(r'^user/', views.user, name='user'),
 ]

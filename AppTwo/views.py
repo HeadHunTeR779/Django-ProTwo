@@ -13,8 +13,12 @@ def user(request):
     if request.method == "POST":
         form = MyModelForm(request.POST)
 
-        form.save()
+        if form.is_valid():
+            form.save(commit=True)   #Default tho
+            return index(request)
 
+        else:
+            print("Error Invalid Form Credentials")
 
 
     return render(request, 'AppTwo/user.html', context={'form':form})
